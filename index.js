@@ -13,7 +13,7 @@ app.post('/api/analyze', async (req, res) => {
   console.log("📩 Request received");
   try {
     const { query, dataPreview } = req.body;
-    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+    const model = generativeModel({ model: "gemini-1.5-flash" });
     const prompt = `Data: ${JSON.stringify(dataPreview)}\nQuestion: ${query}`;
 
     const result = await model.generateContent(prompt);
